@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv03" on;
+    font-family: 'Satoshi', sans-serif;
+
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-slate-500;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-lg;
+  }
+
+  .animated-link {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+
+.hero_title-hoverable {
+  cursor: none;
+}
+
+.hero_title-hoverable:hover {
+  background-color: rgb(41, 40, 40);
+  transition: background-color .3s ease;
+}
+
+.automation-cursor,
+.web-cursor {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: url('/automation.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  transition: transform 0.1s ease-out, opacity 0.2s ease-out 0.2s;
+}
+
+
+.web-cursor {
+  background: url('/webflow-icon.svg') no-repeat center;
+  background-size: contain;
+
+}
